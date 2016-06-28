@@ -1,7 +1,19 @@
 package utilities;
 
+import java.security.InvalidParameterException;
+
+import exceptions.NotImplementedException;
+
 public class DoubleUtilities
 {	
+	public static boolean isGreaterThan(Double input, Double target, Double tolerance ) {
+		throw new NotImplementedException();
+	}
+	
+	public static boolean isLessThan(Double input, Double target, Double tolerance ) {
+		throw new NotImplementedException();
+	}
+	
 	/**
 	 * Tells us if the double is near or equal to the target.
 	 * @param input The value to test.
@@ -10,6 +22,16 @@ public class DoubleUtilities
 	 * @return
 	 */
 	public static boolean isNear(Double input, Double target, Double tolerance) {
+		if ( input == null || target == null || tolerance == null ) {
+			throw new NullPointerException();
+		}
+		
+		if ( input.isNaN( ) || input.isInfinite( ) || 
+				target.isNaN( ) || target.isInfinite( ) ||
+				tolerance.isNaN( ) || tolerance.isInfinite( ) ) {
+			throw new InvalidParameterException();
+		}
+		
 		tolerance = Math.abs( tolerance );
 		return ( input <= (target + tolerance) && input >= (target - tolerance) );
 	}
@@ -21,6 +43,15 @@ public class DoubleUtilities
 	 * @return
 	 */
 	public static boolean isZero(Double input, Double tolerance) {
+		if ( input == null || tolerance == null ) {
+			throw new NullPointerException();
+		}
+		
+		if ( input.isNaN( ) || input.isInfinite( ) || 
+				tolerance.isNaN( ) || tolerance.isInfinite( ) ) {
+			throw new InvalidParameterException();
+		}
+		
 		tolerance = Math.abs( tolerance );
 		return ( input <= (0.0 + tolerance) && input >= (0.0 - tolerance) );
 	}

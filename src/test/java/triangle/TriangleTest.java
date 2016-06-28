@@ -5,9 +5,72 @@ import triangle.TriangleException;
 import triangle.TriangleKind;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import java.security.InvalidParameterException;
 
 public class TriangleTest {
 
+	@Test
+	public void test_constructor_InvalidInputs_NegativeIntegerLengths_ThrowsException() {
+		try {
+			Integer side1 = -1;
+			Integer side2 = -2;
+			Integer side3 = -2;
+			Triangle triangle = new Triangle(side1, side2, side3);
+			fail("Supposed to catch InvalidParameterException");
+		} catch ( InvalidParameterException ipe ) {
+			
+		} catch ( Exception e ) {
+			fail("Expected to catch InvalidParameterException");
+		}
+	}
+	
+	@Test
+	public void test_constructor_InvalidInputs_NullIntegers_ThrowsException() {
+		try {
+			Integer side1 = null;
+			Integer side2 = null;
+			Integer side3 = null;
+			Triangle triangle = new Triangle(side1, side2, side3);
+			fail("Supposed to catch InvalidParameterException");
+		} catch ( InvalidParameterException ipe ) {
+			
+		} catch ( Exception e ) {
+			fail("Expected to catch InvalidParameterException");
+		}
+	}
+	
+	@Test
+	public void test_constructor_InvalidInputs_NegativeDoubleLengths_ThrowsException() {
+		try {
+			Double side1 = -1.0;
+			Double side2 = -2.0;
+			Double side3 = -2.0;
+			Triangle triangle = new Triangle(side1, side2, side3);
+			fail("Supposed to catch InvalidParameterException");
+		} catch ( InvalidParameterException ipe ) {
+			
+		} catch ( Exception e ) {
+			fail("Expected to catch InvalidParameterException");
+		}
+	}
+	
+	@Test
+	public void test_constructor_InvalidInputs_NullDoubles_ThrowsException() {
+		try {
+			Integer side1 = null;
+			Integer side2 = null;
+			Integer side3 = null;
+			Triangle triangle = new Triangle(side1, side2, side3);
+			fail("Supposed to catch InvalidParameterException");
+		} catch ( InvalidParameterException ipe ) {
+			
+		} catch ( Exception e ) {
+			fail("Expected to catch InvalidParameterException");
+		}
+	}
+	
     @Test
     public void equilateralTriangleHaveEqualSides() throws Exception {
         Triangle triangle = new Triangle(2, 2, 2);

@@ -18,11 +18,11 @@ public class TriangleTest {
 			Integer side2 = -2;
 			Integer side3 = -2;
 			Triangle triangle = new Triangle(side1, side2, side3);
-			fail("Supposed to catch InvalidParameterException");
-		} catch ( InvalidParameterException ipe ) {
+			fail("Supposed to catch TriangleException");
+		} catch ( TriangleException te ) {
 			
 		} catch ( Exception e ) {
-			fail("Expected to catch InvalidParameterException");
+			fail("Expected to catch TriangleException");
 		}
 	}
 	
@@ -33,11 +33,11 @@ public class TriangleTest {
 			Integer side2 = null;
 			Integer side3 = null;
 			Triangle triangle = new Triangle(side1, side2, side3);
-			fail("Supposed to catch InvalidParameterException");
-		} catch ( InvalidParameterException ipe ) {
+			fail("Supposed to catch NullPointerException");
+		} catch ( NullPointerException ipe ) {
 			
 		} catch ( Exception e ) {
-			fail("Expected to catch InvalidParameterException");
+			fail("Expected to catch NullPointerException");
 		}
 	}
 	
@@ -48,11 +48,11 @@ public class TriangleTest {
 			Double side2 = -2.0;
 			Double side3 = -2.0;
 			Triangle triangle = new Triangle(side1, side2, side3);
-			fail("Supposed to catch InvalidParameterException");
-		} catch ( InvalidParameterException ipe ) {
+			fail("Supposed to catch TriangleException");
+		} catch ( TriangleException te ) {
 			
 		} catch ( Exception e ) {
-			fail("Expected to catch InvalidParameterException");
+			fail("Expected to catch TriangleException");
 		}
 	}
 	
@@ -63,11 +63,11 @@ public class TriangleTest {
 			Integer side2 = null;
 			Integer side3 = null;
 			Triangle triangle = new Triangle(side1, side2, side3);
-			fail("Supposed to catch InvalidParameterException");
-		} catch ( InvalidParameterException ipe ) {
+			fail("Supposed to catch NullPointerException");
+		} catch ( NullPointerException ipe ) {
 			
 		} catch ( Exception e ) {
-			fail("Expected to catch InvalidParameterException");
+			fail("Expected to catch NullPointerException");
 		}
 	}
 	

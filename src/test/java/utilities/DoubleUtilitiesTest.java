@@ -47,7 +47,7 @@ public class DoubleUtilitiesTest
 	
 	@Test
 	public void test_isGreaterThan_InvalidInputs_HandlesNegativeTolerance_ExpectedResult() {
-		assertTrue( DoubleUtilities.isGreaterThan( 3.05, 3.0, -0.1 ) );
+		assertTrue( DoubleUtilities.isGreaterThan( 6.0, 3.0, -0.1 ) );
 	}
 	
 	@Test
@@ -56,18 +56,23 @@ public class DoubleUtilitiesTest
 	}
 	
 	@Test
+	public void test_isGreaterThan_ValidInputs_GreaterThanTarget_ExpectedResult() {
+		assertTrue( DoubleUtilities.isGreaterThan( 6.0, 3.0, 0.1 ) );
+	}
+	
+	@Test
 	public void test_isGreaterThan_ValidInputs_GreaterThanTargetAndClose_ExpectedResult() {
-		assertTrue( DoubleUtilities.isGreaterThan( 3.05, 3.0, 0.1 ) );
+		assertFalse( DoubleUtilities.isGreaterThan( 3.05, 3.0, 0.1 ) );
 	}
 	
 	@Test
 	public void test_isGreaterThan_ValidInputs_LessThanTargetButWithinTolerance_ExpectedResult() {
-		assertTrue( DoubleUtilities.isGreaterThan( 2.95, 3.0, 0.1 ) );
+		assertFalse( DoubleUtilities.isGreaterThan( 2.95, 3.0, 0.1 ) );
 	}
 	
 	@Test
 	public void test_isGreaterThan_ValidInputs_IsTarget_ExpectedResult() {
-		assertTrue( DoubleUtilities.isGreaterThan( 3.0, 3.0, 0.1 ) );
+		assertFalse( DoubleUtilities.isGreaterThan( 3.0, 3.0, 0.1 ) );
 	}
 	
 	// isLessThan tests.
@@ -118,18 +123,23 @@ public class DoubleUtilitiesTest
 	}
 	
 	@Test
+	public void test_isLessThan_ValidInputs_LessThanTarget_ExpectedResult() {
+		assertTrue( DoubleUtilities.isLessThan( 1.0, 3.0, 0.1 ) );
+	}
+	
+	@Test
 	public void test_isLessThan_ValidInputs_LessThanTargetAndClose_ExpectedResult() {
-		assertTrue( DoubleUtilities.isLessThan( 2.95, 3.0, 0.1 ) );
+		assertFalse( DoubleUtilities.isLessThan( 2.95, 3.0, 0.1 ) );
 	}
 	
 	@Test
 	public void test_isLessThan_ValidInputs_GreaterThanTargetButWithinTolerance_ExpectedResult() {
-		assertTrue( DoubleUtilities.isLessThan( 3.05, 3.0, 0.1 ) );
+		assertFalse( DoubleUtilities.isLessThan( 3.05, 3.0, 0.1 ) );
 	}
 	
 	@Test
 	public void test_isLessThan_ValidInputs_IsTarget_ExpectedResult() {
-		assertTrue( DoubleUtilities.isLessThan( 3.0, 3.0, 0.1 ) );
+		assertFalse( DoubleUtilities.isLessThan( 3.0, 3.0, 0.1 ) );
 	}
 	
 	// isNear tests.

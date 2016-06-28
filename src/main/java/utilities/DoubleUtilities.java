@@ -2,16 +2,50 @@ package utilities;
 
 import java.security.InvalidParameterException;
 
-import exceptions.NotImplementedException;
-
 public class DoubleUtilities
 {	
+	/**
+	 * Returns true if the input is greater than the target.
+	 * @param input The value to test.
+	 * @param target The value to compare against.
+	 * @param tolerance
+	 * @return
+	 */
 	public static boolean isGreaterThan(Double input, Double target, Double tolerance ) {
-		throw new NotImplementedException();
+		if ( input == null || target == null || tolerance == null ) {
+			throw new NullPointerException();
+		}
+		
+		if ( input.isNaN( ) || input.isInfinite( ) || 
+				target.isNaN( ) || target.isInfinite( ) ||
+				tolerance.isNaN( ) || tolerance.isInfinite( ) ) {
+			throw new InvalidParameterException();
+		}
+		
+		tolerance = Math.abs( tolerance );
+		return (input > (target + tolerance) );
 	}
 	
+	/**
+	 * Returns true if the input is less than the target.
+	 * @param input The value to test.
+	 * @param target The value to compare against.
+	 * @param tolerance
+	 * @return
+	 */
 	public static boolean isLessThan(Double input, Double target, Double tolerance ) {
-		throw new NotImplementedException();
+		if ( input == null || target == null || tolerance == null ) {
+			throw new NullPointerException();
+		}
+		
+		if ( input.isNaN( ) || input.isInfinite( ) || 
+				target.isNaN( ) || target.isInfinite( ) ||
+				tolerance.isNaN( ) || tolerance.isInfinite( ) ) {
+			throw new InvalidParameterException();
+		}
+		
+		tolerance = Math.abs( tolerance );
+		return (input < (target - tolerance) );
 	}
 	
 	/**

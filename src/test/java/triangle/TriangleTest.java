@@ -1,4 +1,8 @@
+package triangle;
 import org.junit.Test;
+
+import triangle.TriangleException;
+import triangle.TriangleKind;
 
 import static org.junit.Assert.assertEquals;
 
